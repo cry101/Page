@@ -1,6 +1,8 @@
-# <h1>Page</h1>
+<h1>Page</h1>
 <h3>My first Plugin.<br />
 It is simple page plugin.</h3>
+
+<img src="https://github.com/cry101/Page/blob/master/raw/demo.png" alt="page">
 
 <h4>you should:</h4>
 <div class="highlight highlight-text-html-basic">
