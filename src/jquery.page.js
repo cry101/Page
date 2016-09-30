@@ -56,7 +56,7 @@
           dataHtml += '<div class="prv fr">' + opts.prv + '</div>';
       }
       
-      obj.html(dataHtml);
+      obj.html(dataHtml).off("click");//防止插件重复调用时，重复绑定事件
       
       obj.on('click', '.next', function () {
         var pageshow = parseInt($('.' + active).html());
@@ -71,7 +71,7 @@
           nums = (n+1);
           flag = false;
         }
-        if(pageshow == l) {
+        if(pageshow >= l) {
           return;
         }else if(pageshow > 0&&pageshow <= nums/2){
           //最前几项
@@ -88,7 +88,7 @@
       obj.on('click', '.prv', function () {
         var pageshow = parseInt($('.' + active).html());
         var nums = odevity(n);
-        if (pageshow == 1) {
+        if (pageshow <= 1) {
             return;
         }else if((pageshow > 1&&pageshow <= nums/2)||(pageshow > l-nums/2&&pageshow < l+1)){
           //最前几项或最后几项
@@ -102,7 +102,7 @@
 
       obj.on('click', '.first', function(){
         var activepage = parseInt($('.' + active).html());
-        if (activepage == 1){
+        if (activepage <= 1){
           return
         }//当前第一页
         opts.callBack(1);
@@ -110,7 +110,7 @@
       });
       obj.on('click', '.last', function(){
         var activepage = parseInt($('.' + active).html());
-        if (activepage == l){
+        if (activepage >= l){
           return;
         }//当前最后一页
         opts.callBack(l);
