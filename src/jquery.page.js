@@ -56,7 +56,7 @@
           dataHtml += '<div class="prv fr">' + opts.prv + '</div>';
       }
       
-      obj.html(dataHtml).off("click");//防止插件重复调用时，重复绑定事件
+      obj.html(dataHtml);
       
       obj.on('click', '.next', function () {
         var pageshow = parseInt($('.' + active).html());
@@ -102,7 +102,7 @@
 
       obj.on('click', '.first', function(){
         var activepage = parseInt($('.' + active).html());
-        if (activepage <= 1){
+        if (activepage == 1){
           return
         }//当前第一页
         opts.callBack(1);
@@ -110,7 +110,7 @@
       });
       obj.on('click', '.last', function(){
         var activepage = parseInt($('.' + active).html());
-        if (activepage >= l){
+        if (activepage == l){
           return;
         }//当前最后一页
         opts.callBack(l);

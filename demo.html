@@ -7,18 +7,24 @@
 </head>
 <body>
 	<div id="page"></div>
+	<button id="btn">设为10</button>
 	<script type="text/javascript" src="src/jquery.min.js"></script>
-	<script type="text/javascript" src="src/jquery.page.js"></script>
+	<script type="text/javascript" src="src/jquery.page2.0.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			$("#page").Page({
-          totalPages: 9,//分页总数
+			$("#page").page({
+          totalPages: 14,//分页总数
+          initPage: 4,//初始页数
           liNums: 7,//分页的数字按钮数(建议取奇数)
           activeClass: 'activP', //active 类样式定义
           callBack : function(page){
           		console.log(page)
           }
       });
+      /*设置页数*/
+      $('#btn').click(function(){
+      	 $("#page").page('setPage',10)
+      })
 		})
 	</script>
 </body>
