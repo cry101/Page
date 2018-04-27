@@ -87,7 +87,7 @@
                 }
                 if (pageshow >= l) {
                     return;
-                } else if (pageshow > 0 && pageshow <= nums / 2) {
+                } else if (pageshow > 0 && pageshow < nums / 2) {
                     //最前几项
                     $('.' + active).removeClass(active).parent().next().find('a').addClass(active);
                 } else if ((pageshow > l - nums / 2 && pageshow < l && flag == false) || (pageshow > l - nums / 2 - 1 && pageshow < l && flag == true)) {
@@ -104,12 +104,12 @@
                 var nums = _this._odevity(n);
                 if (pageshow <= 1) {
                     return;
-                } else if ((pageshow > 1 && pageshow <= nums / 2) || (pageshow > l - nums / 2 && pageshow < l + 1)) {
+                } else if ((pageshow > 1 && pageshow <= nums / 2) || (pageshow -1 > l - nums / 2 && pageshow < l + 1)) {
                     //最前几项或最后几项
                     $('.' + active).removeClass(active).parent().prev().find('a').addClass(active);
                 } else {
                     $('.' + active).removeClass(active).parent().prev().find('a').addClass(active);
-                    _this._fpageShow(pageshow - 1);
+	                _this._fpageShow(pageshow -1);
                 }
                 opts.callBack(pageshow - 1);
             });
